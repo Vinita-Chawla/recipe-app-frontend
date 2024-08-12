@@ -60,7 +60,7 @@ function Payment() {
 
       console.log("payment", paymentMethod);
 
-      const response = await axios.post("http://localhost:5000/", {
+      const response = await axios.post("https://recipe-app-backend-orcin.vercel.app/", {
         id: paymentMethod.id,
         amount: price,
         interval: interval,
@@ -76,7 +76,7 @@ function Payment() {
         formdata.append("premium", true);
 
         let response = await axios.post(
-          `http://localhost:5000/auth/updateUser/${user._id}`,
+          `https://recipe-app-backend-orcin.vercel.app/auth/updateUser/${user._id}`,
           formdata
         );
         console.log("response.data", response.data);

@@ -25,7 +25,7 @@ function Recipes() {
   }, []);
 
   const getRecipes = async () => {
-    let response = await axios.get('http://localhost:5000/recipe/getAllRecipes');
+    let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes');
     setRecipes(response.data);
   };
 

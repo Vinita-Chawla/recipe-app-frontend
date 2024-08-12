@@ -20,7 +20,7 @@ function Login() {
     formdata.append("email", email)
     formdata.append("password", password)
 
-    let response = await axios.post("http://localhost:5000/auth/login", formdata);
+    let response = await axios.post("https://recipe-app-backend-orcin.vercel.app/auth/login", formdata);
     console.log(response.data)
     if(response.data.result){
       alert("Please Enter correct details!")

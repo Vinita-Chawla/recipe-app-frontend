@@ -37,7 +37,7 @@ const AddRecipe = ()=>{
     formData.append("cooking_time", cooking_time);
     formData.append("calories", calories);
 
-    let response = await axios.post("http://localhost:5000/recipe/addRecipe", formData,{
+    let response = await axios.post("https://recipe-app-backend-orcin.vercel.app/recipe/addRecipe", formData,{
       headers: {
         "Content-Type": "multipart/form-data"
       }

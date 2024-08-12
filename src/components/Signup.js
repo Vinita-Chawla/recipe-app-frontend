@@ -26,7 +26,7 @@ function Signup() {
     formdata.append("profile", profile)
     formdata.append("premium", false)
 
-    let response = await axios.post("http://localhost:5000/auth/register", formdata);
+    let response = await axios.post("https://recipe-app-backend-orcin.vercel.app/auth/register", formdata);
     console.log(response.data)
     if(response.data){
       localStorage.setItem("user", JSON.stringify(response.data.user));

@@ -51,7 +51,7 @@ function Recipes() {
   }
 
   const recipeLiked = async(recipeId)=>{
-    let response = await axios.get(`http://localhost:5000/recipe/singleRecipe/${recipeId}`);
+    let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${recipeId}`);
   
   
      // Convert the object into an array
@@ -80,7 +80,7 @@ function Recipes() {
       recipeId: recipeId,
       isLiked:true
     }
-    let response = await axios.post(`http://localhost:5000/recipe/addlikes/${recipeId}`, data);
+    let response = await axios.post(`https://recipe-app-backend-orcin.vercel.app/recipe/addlikes/${recipeId}`, data);
     console.log(response.data);
     getRecipes();
   }
@@ -93,7 +93,7 @@ function Recipes() {
       }
     }
 
-    let response = await axios.put(`http://localhost:5000/recipe/updatelikes/${userId}/${recipeId}`, data);
+    let response = await axios.put(`https://recipe-app-backend-orcin.vercel.app/recipe/updatelikes/${userId}/${recipeId}`, data);
     console.log(response.data);
     getRecipes();
   }

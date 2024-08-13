@@ -28,7 +28,7 @@ function Recipes() {
 
   const getRecipes = async () => {
     const headers = {
-      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
       "Content-Type":"application/json"
   }
     let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes',{headers});
@@ -56,7 +56,7 @@ function Recipes() {
 
   const recipeLiked = async(recipeId)=>{
     const headers = {
-      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
       "Content-Type":"application/json"
   }
     let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${recipeId}`,{headers});
@@ -89,7 +89,7 @@ function Recipes() {
       isLiked:true
     }
     const headers = {
-      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
       "Content-Type":"application/json"
   }
     let response = await axios.post(`https://recipe-app-backend-orcin.vercel.app/recipe/addlikes/${recipeId}`, data, {headers});
@@ -106,7 +106,7 @@ function Recipes() {
     }
 
      const headers = {
-        "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
         "Content-Type":"application/json"
     }
 

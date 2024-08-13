@@ -61,7 +61,7 @@ function Payment() {
       console.log("payment", paymentMethod);
 
       const headers = {
-        "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
         "Content-Type":"application/json"
     }
 
@@ -81,7 +81,7 @@ function Payment() {
         formdata.append("premium", true);
 
         const headers = {
-          "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+          "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
           "Content-Type":"application/json"
       }
 

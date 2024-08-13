@@ -14,7 +14,7 @@ const SingleRecipe = ()=>{
 
   const getRecipe=async()=>{
     const headers = {
-      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
       "Content-Type":"application/json"
   }
     let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${id}`, {headers});

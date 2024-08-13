@@ -41,7 +41,7 @@ const AddRecipe = ()=>{
 
     let response = await axios.post("https://recipe-app-backend-orcin.vercel.app/recipe/addRecipe", formData,{
       headers: {
-        "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
         "Content-Type": "multipart/form-data"
       }
     });

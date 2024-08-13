@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import { toast } from 'react-toastify'
 
 const AddRecipe = ()=>{
     const [recipe_title,setTitle] = useState();
@@ -48,7 +49,10 @@ const AddRecipe = ()=>{
     console.log(response.data)
     if(response.data){
       setTitle(""); setSummary(""); setCategory(""); setInGradient([]); setPrepTime(""); setCookingTime(""); setCalories("");
-      navigate("/");
+      toast.success("Recipe Added Successfully!")
+      setTimeout(() => {
+        navigate("/")
+      }, 1000);
     }
    }
 

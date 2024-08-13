@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import {Link, useNavigate} from "react-router-dom";
 import axios from 'axios';
+import { toast } from 'react-toastify'
 
 function Login() {
   const [email, setEmail] = useState();
@@ -23,13 +24,16 @@ function Login() {
     let response = await axios.post("https://recipe-app-backend-orcin.vercel.app/auth/login", formdata);
     console.log(response.data)
     if(response.data.result){
-      alert("Please Enter correct details!")
+      toast.error("Please Enter correct details!")
     }
 
     localStorage.setItem("user", JSON.stringify(response.data.user));
     localStorage.setItem("auth", JSON.stringify(response.data.auth));
     setEmail(""); setPassword("");
-    navigate("/")
+    toast.success("Login Successfull!")
+      setTimeout(() => {
+        navigate("/")
+      }, 1000);
 
   }
 

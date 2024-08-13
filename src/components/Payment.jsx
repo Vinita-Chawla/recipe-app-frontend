@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 function Payment() {
   let elements = useElements();
@@ -94,10 +95,18 @@ function Payment() {
         }
       }
 
-      navigate("/success");
+      
+      toast.success("Subscription Successfull!")
+      setTimeout(() => {
+        navigate("/success");
+      }, 1000);
+
     } catch (error) {
       console.error("Error during purchase:", error.message);
-      navigate("/cancel");
+      toast.error("Subscription Failed!")
+      setTimeout(() => {
+        navigate("/cancel");
+      }, 1000);
     }
   };
 

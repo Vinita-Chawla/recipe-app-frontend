@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Link, useNavigate} from "react-router-dom"
+import { toast } from 'react-toastify'
 
 function Recipes() {
   const [recipes, setRecipes] = useState();
@@ -94,6 +95,7 @@ function Recipes() {
   }
     let response = await axios.post(`https://recipe-app-backend-orcin.vercel.app/recipe/addlikes/${recipeId}`, data, {headers});
     console.log(response.data);
+    toast.success("Recipe added to Favorites!")
     getRecipes();
   }
 
@@ -112,6 +114,8 @@ function Recipes() {
 
     let response = await axios.put(`https://recipe-app-backend-orcin.vercel.app/recipe/updatelikes/${userId}/${recipeId}`, data, {headers});
     console.log(response.data);
+
+    toast.success("Recipe removed from Favorites!")
     getRecipes();
   }
 

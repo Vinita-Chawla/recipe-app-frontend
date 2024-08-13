@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { toast } from 'react-toastify'
 
 function Signup() {
   const [name, setName] = useState();
@@ -32,7 +33,11 @@ function Signup() {
       localStorage.setItem("user", JSON.stringify(response.data.user));
       localStorage.setItem("auth", JSON.stringify(response.data.auth));
       setName(""); setEmail(""); setPassword("");
-      navigate("/")
+
+      toast.success("SignUp Successfull!")
+      setTimeout(() => {
+        navigate("/")
+      }, 1000);
     }
   }
 

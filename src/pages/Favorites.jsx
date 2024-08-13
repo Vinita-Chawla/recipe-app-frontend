@@ -12,7 +12,11 @@ function Favorites() {
   }, []);
 
   const getRecipes = async () => {
-    let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes');
+    const headers = {
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Content-Type":"application/json"
+  }
+    let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes', {headers});
     setRecipes(response.data);
   };
   return (

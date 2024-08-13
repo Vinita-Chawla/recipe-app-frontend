@@ -13,7 +13,11 @@ const SingleRecipe = ()=>{
   },[])
 
   const getRecipe=async()=>{
-    let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${id}`);
+    const headers = {
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Content-Type":"application/json"
+  }
+    let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${id}`, {headers});
     setRecipe(response.data);
   }
 

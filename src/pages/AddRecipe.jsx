@@ -37,8 +37,11 @@ const AddRecipe = ()=>{
     formData.append("cooking_time", cooking_time);
     formData.append("calories", calories);
 
+  
+
     let response = await axios.post("https://recipe-app-backend-orcin.vercel.app/recipe/addRecipe", formData,{
       headers: {
+        "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
         "Content-Type": "multipart/form-data"
       }
     });

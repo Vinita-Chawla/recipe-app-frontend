@@ -60,6 +60,11 @@ function Payment() {
 
       console.log("payment", paymentMethod);
 
+      const headers = {
+        "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        "Content-Type":"application/json"
+    }
+
       const response = await axios.post("https://recipe-app-backend-orcin.vercel.app/", {
         id: paymentMethod.id,
         amount: price,
@@ -67,7 +72,7 @@ function Payment() {
         plan: plan,
         name: user.name,
         email: user.email,
-      });
+      }, {headers});
 
       console.log("response", response);
 
@@ -75,9 +80,13 @@ function Payment() {
         let formdata = new FormData();
         formdata.append("premium", true);
 
+        const headers = {
+          "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+          "Content-Type":"application/json"
+      }
+
         let response = await axios.post(
-          `https://recipe-app-backend-orcin.vercel.app/auth/updateUser/${user._id}`,
-          formdata
+          `https://recipe-app-backend-orcin.vercel.app/auth/updateUser/${user._id}`,formdata,{headers}
         );
         console.log("response.data", response.data);
         if (response.data) {

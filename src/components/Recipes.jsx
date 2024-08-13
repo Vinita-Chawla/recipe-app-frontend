@@ -27,7 +27,11 @@ function Recipes() {
   }, []);
 
   const getRecipes = async () => {
-    let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes');
+    const headers = {
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Content-Type":"application/json"
+  }
+    let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes',{headers});
     setRecipes(response.data);
   };
 
@@ -51,7 +55,11 @@ function Recipes() {
   }
 
   const recipeLiked = async(recipeId)=>{
-    let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${recipeId}`);
+    const headers = {
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Content-Type":"application/json"
+  }
+    let response = await axios.get(`https://recipe-app-backend-orcin.vercel.app/recipe/singleRecipe/${recipeId}`,{headers});
   
   
      // Convert the object into an array
@@ -80,7 +88,11 @@ function Recipes() {
       recipeId: recipeId,
       isLiked:true
     }
-    let response = await axios.post(`https://recipe-app-backend-orcin.vercel.app/recipe/addlikes/${recipeId}`, data);
+    const headers = {
+      "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      "Content-Type":"application/json"
+  }
+    let response = await axios.post(`https://recipe-app-backend-orcin.vercel.app/recipe/addlikes/${recipeId}`, data, {headers});
     console.log(response.data);
     getRecipes();
   }
@@ -93,13 +105,16 @@ function Recipes() {
       }
     }
 
-    let response = await axios.put(`https://recipe-app-backend-orcin.vercel.app/recipe/updatelikes/${userId}/${recipeId}`, data);
+     const headers = {
+        "Authorization": `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        "Content-Type":"application/json"
+    }
+
+    let response = await axios.put(`https://recipe-app-backend-orcin.vercel.app/recipe/updatelikes/${userId}/${recipeId}`, data, {headers});
     console.log(response.data);
     getRecipes();
   }
 
-
- 
 
 
   return (

@@ -113,7 +113,7 @@ function Recipes() {
           <div className='flex justify-between'>
             <div>
            {
-            recipe?.likes?.some((recipeObj)=> recipeObj.recipeId === recipe?._id && recipeObj.userId === user._id && recipeObj.isLiked)?
+            recipe?.likes?.some((recipeObj)=> recipeObj.recipeId === recipe?._id && recipeObj.userId === user?._id && recipeObj.isLiked)?
             <svg onClick={()=> handleLiked(recipe?._id)} height="20px" width="20px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
       <path style={{ fill: '#FF6647' }} d="M474.655,74.503C449.169,45.72,413.943,29.87,375.467,29.87c-30.225,0-58.5,12.299-81.767,35.566
         c-15.522,15.523-28.33,35.26-37.699,57.931c-9.371-22.671-22.177-42.407-37.699-57.931c-23.267-23.267-51.542-35.566-81.767-35.566

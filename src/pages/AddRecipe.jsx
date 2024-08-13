@@ -16,7 +16,7 @@ const AddRecipe = ()=>{
     const navigate = useNavigate();
 
     let auth = localStorage.getItem("user");
-    let userId = JSON.parse(auth)._id;
+    let userId = JSON.parse(auth)?._id;
 
     const handleAddIngredient = ()=>{
       if(newInGradient !== ""){

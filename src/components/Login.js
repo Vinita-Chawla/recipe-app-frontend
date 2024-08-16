@@ -26,14 +26,16 @@ function Login() {
     if(response.data.result){
       toast.error("Please Enter correct details!")
     }
-
-    localStorage.setItem("user", JSON.stringify(response.data.user));
-    localStorage.setItem("auth", JSON.stringify(response.data.auth));
-    setEmail(""); setPassword("");
-    toast.success("Login Successfull!")
-      setTimeout(() => {
-        navigate("/")
-      }, 1000);
+    else{
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("auth", JSON.stringify(response.data.auth));
+      setEmail(""); setPassword("");
+      toast.success("Login Successfull!")
+        setTimeout(() => {
+          navigate("/")
+        }, 1000);
+  
+    }
 
   }
 

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 function Recipes() {
   const [recipes, setRecipes] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState();
 
   let auth = localStorage.getItem("user");
   let user = JSON.parse(auth);
@@ -23,17 +24,33 @@ function Recipes() {
     setIsModalOpen(false);
   };
 
+  const handle401 = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
+
   useEffect(() => {
     getRecipes();
   }, []);
 
   const getRecipes = async () => {
+   try {
     const headers = {
       "Authorization": `bearer ${JSON.parse(localStorage.getItem("auth"))}`,
       "Content-Type":"application/json"
   }
     let response = await axios.get('https://recipe-app-backend-orcin.vercel.app/recipe/getAllRecipes',{headers});
     setRecipes(response.data);
+   } 
+   catch (error) {
+    if (error.response && error.response.status === 401) {
+      handle401();
+    }
+   }
+
+   
+
   };
 
   const handleClick = (recipeId)=>{
@@ -114,18 +131,30 @@ function Recipes() {
 
     let response = await axios.put(`https://recipe-app-backend-orcin.vercel.app/recipe/updatelikes/${userId}/${recipeId}`, data, {headers});
     console.log(response.data);
+    
 
     toast.success("Recipe removed from Favorites!")
     getRecipes();
   }
 
+  const filteredRecipes = recipes?.filter((recipe)=>{
+    if(searchValue === "" || searchValue === undefined){
+      return recipe;
+    }
+    else if(recipe?.recipe_title?.toLowerCase().includes(searchValue.toLowerCase())){
+      return recipe;
+    }
+  })
+  
 
+  
 
   return (
     <div className='mt-[5rem] w-[95%] sm:w-[80%] mx-auto'>
       <h3 className='text-[#674188] font-bold text-[2rem]'>Latest Recipes</h3>
+      <input type='text' placeholder='Search a recipe' className='border-solid border-black border-[1px] my-[2rem] w-[100%] mx-auto bg-white px-[1rem] py-[0.6rem]' onChange={(e)=> setSearchValue(e.target.value)} value={searchValue}/>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1.5rem] mt-[2rem] justify-items-center'>
-        {recipes?.map((recipe, index) => (
+        {filteredRecipes?.map((recipe, index) => (
           <div key={index} className='cursor-pointer flex flex-col gap-[0.6rem] w-[250px] bg-white p-[1rem] rounded shadow-lg shadow-indigo-500/40 '>
             <img onClick={()=> handleClick(recipe?._id)}  className='w-[250px] h-[250px] rounded' src={recipe.recipe_photo} alt='' />
             <p className='text-[#606060] font-medium text-[1.1rem]'>{recipe?.recipe_title}</p>

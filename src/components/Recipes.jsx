@@ -139,11 +139,12 @@ function Recipes() {
 
   const filteredRecipes = recipes?.filter((recipe)=>{
     if(searchValue === "" || searchValue === undefined){
-      return recipe;
+      return true;
     }
     else if(recipe?.recipe_title?.toLowerCase().includes(searchValue.toLowerCase())){
-      return recipe;
+      return true;
     }
+    return false;
   })
   
 

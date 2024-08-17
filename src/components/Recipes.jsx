@@ -214,16 +214,19 @@ function Recipes() {
                     <div className='option'>
                       <ul>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> 10 GB Space
+                          <i className='fa fa-check' aria-hidden='true'></i>  Access to all recipes
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> 3 Domain Names
+                          <i className='fa fa-check' aria-hidden='true'></i> Meal planning features
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> 20 Email Address
+                          <i className='fa fa-check' aria-hidden='true'></i> Basic shopping lists
                         </li>
                         <li>
-                          <i className='fa fa-times' aria-hidden='true'></i> Live Support
+                          <i className='fa fa-check' aria-hidden='true'></i> Standard dietary preferences
+                        </li>
+                        <li>
+                          <i className='fa fa-times' aria-hidden='true'></i> Multiple user accounts
                         </li>
                       </ul>
                     </div>
@@ -245,16 +248,19 @@ function Recipes() {
                     <div className='option'>
                       <ul>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> 50 GB Space
+                          <i className='fa fa-check' aria-hidden='true'></i> Unlimited recipe access
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> 5 Domain Names
+                          <i className='fa fa-check' aria-hidden='true'></i> Advanced meal planning
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> Unlimited Email Address
+                          <i className='fa fa-check' aria-hidden='true'></i> Detailed shopping lists
                         </li>
                         <li>
-                          <i className='fa fa-times' aria-hidden='true'></i> Live Support
+                          <i className='fa fa-check' aria-hidden='true'></i>  Custom dietary preferences
+                        </li>
+                        <li>
+                          <i className='fa fa-times' aria-hidden='true'></i> Exclusive recipes
                         </li>
                       </ul>
                     </div>
@@ -276,16 +282,19 @@ function Recipes() {
                     <div className='option'>
                       <ul>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> Unlimited GB Space
+                          <i className='fa fa-check' aria-hidden='true'></i> All monthly features
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> 30 Domain Names
+                          <i className='fa fa-check' aria-hidden='true'></i> Extended meal planning for a year
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> Unlimited Email Address
+                          <i className='fa fa-check' aria-hidden='true'></i> Multiple user accounts
                         </li>
                         <li>
-                          <i className='fa fa-check' aria-hidden='true'></i> Live Support
+                          <i className='fa fa-check' aria-hidden='true'></i> Premium and exclusive recipes
+                        </li>
+                        <li>
+                          <i className='fa fa-check' aria-hidden='true'></i> Best value with one-time payment
                         </li>
                       </ul>
                     </div>
